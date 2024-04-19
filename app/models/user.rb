@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   has_many :posts
-  has_many :following_users, foreign_key: :followed_id, class_name: 'Following'
-  has_many :followed_users, foreign_key: :follower_id, class_name: 'Following'
-  has_many :followers, through: :following_users
-  has_many :followed, through: :followed_users
+  has_many :following_users, foreign_key: :follower_id, class_name: 'Following'
+  has_many :followed_users, foreign_key: :followee_id, class_name: 'Following'
+  has_many :followers, through: :followed_users
+  has_many :followees, through: :following_users
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
