@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :posts
   has_many :followers, class_name: 'User', foreign_key: 'follower_id'
-  belongs_to :following, class_name: 'User'
+  belongs_to :following, class_name: 'User', optional: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
@@ -12,8 +12,12 @@ class User < ApplicationRecord
     data = access_token.info
     user = User.where(email: data['email']).first
 
-    user || User.create(name: data['name'], email: data['email'], password: Devise.friendly_token[0, 20])
+    unless user
+      user = User.create(name: data['name'],
+        email: data['email'],
+        password: Devise.friendly_token[0,20]
+      )
+    end
+    user
   end
 end
-
-

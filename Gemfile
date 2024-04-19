@@ -73,4 +73,3 @@ end
 gem "devise", "~> 4.9"
 
 gem 'dotenv-rails', groups: [:development, :test]
-

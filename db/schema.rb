@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_185808) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.bigint "follower_id", null: false
+    t.bigint "follower_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["follower_id"], name: "index_users_on_follower_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

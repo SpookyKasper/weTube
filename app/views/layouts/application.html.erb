@@ -14,6 +14,8 @@
     <% if current_user %>
       <%= button_to 'Sign-out', destroy_session_path(current_user), method: :delete %>
     <% end %>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
     <%= yield %>
   </body>
 </html>
