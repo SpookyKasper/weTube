@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :posts
   resources :users, only: ['index']
-  resources :followings, only: ['create', 'destroy']
-
+  resources :followings, only: %w[create destroy]
+  resources :likes, only: %w[create destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
