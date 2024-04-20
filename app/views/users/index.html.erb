@@ -1,14 +1,25 @@
 <h1>Users</h1>
 
-<% @users.each do |u| %>
+Following:<br>
+<% @followees.each do |f| %>
+  <%= f.name %><br>
+<% end %><br>
+
+<% @users.each do |user| %>
   <div class="user-info">
-     Name: <%= u.name %><br>
-     Email: <%= u.email %>
+     Name: <%= user.name %><br>
+     Email: <%= user.email %>
   </div>
-  <%= form_with model: @following do |f| %>
-    <%= f.hidden_field :follower_id, value: current_user.id %>
-    <%= f.hidden_field :followee_id, value: u.id %>
-    <%= f.submit 'Follow' %>
+
+  <% if @followees.include?(user) %>
+    <% following = Following.find_by(followee_id: user.id) %>
+    <%= button_to 'Unfollow', following_path(following.id), method: :delete %>
+  <% else %>
+    <%= form_with model: @following do |f| %>
+      <%= f.hidden_field :follower_id, value: current_user.id %>
+      <%= f.hidden_field :followee_id, value: user.id %>
+      <%= f.submit 'Follow' %>
+    <% end %>
   <% end %>
   <br>
 <% end %>

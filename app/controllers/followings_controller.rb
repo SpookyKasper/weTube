@@ -3,10 +3,17 @@ class FollowingsController < ApplicationController
     @following = Following.new(following_params)
 
     if @following.save
-      puts 'peak time'
+      redirect_to users_path
     else
 
     end
+  end
+
+  def destroy
+    @following = Following.find(params[:id])
+    return unless @following.destroy
+
+    redirect_to users_path
   end
 
   private
