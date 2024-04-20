@@ -20,6 +20,10 @@ names = %w[jean andy peak kevin mark]
   end
 end
 
-User.all.each_with_index do |user|
-  Post.find_or_create_by!(user_id: user.id, title: "The story of #{user.name}", body: "Long time ago in the deapths of #{user.name} land ")
+User.all.each do |user|
+  Post.find_or_create_by!(
+    user_id: user.id,
+    title: "The story of #{user.name}",
+    body: "Long time ago in the deapths of #{user.name} land"
+  )
 end

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.includes(:comments).all
+    @posts = Post.includes(:comments, :user, :likes).all
     @like = Like.new
     @liked_posts = Like.where(user_id: current_user).map(&:post)
   end
