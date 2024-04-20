@@ -11,10 +11,10 @@
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :post_id, value: @post.id %>
       <%= f.text_field :body %>
-      <%= f.submit 'Publish Comment'%>
+      <%= f.submit 'Publish Comment' %>
     <% end %>
   </div>
-  <%= link_to "Back to posts", posts_path %>
 
   <%= button_to "Delete Post", @post, method: :delete %>
+  <%= link_to "Back to posts", posts_path %>
 </div>
