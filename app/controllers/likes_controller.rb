@@ -2,13 +2,17 @@ class LikesController < ApplicationController
   def create
     @like = Like.new(like_params)
     if @like.save
-      puts 'peak time'
+      redirect_to :posts
     else
-      puts 'not good'
+      render :posts, status: 422
     end
   end
 
   def destroy
+    @like = Like.find(params[:id])
+    if @like.destroy
+      redirect_to :posts
+    end
   end
 
   private

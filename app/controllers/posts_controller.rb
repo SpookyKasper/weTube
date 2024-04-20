@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @like = Like.new
+    @liked_posts = Like.where(user_id: current_user).map(&:post)
   end
 
   # GET /posts/1 or /posts/1.json

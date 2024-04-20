@@ -1,6 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Posts</h1>
+
+
+Liked Posts:<br>
+<% @liked_posts.each do |post| %>
+  <%= post.title %><br>
+<% end %>
 
 <div id="posts">
   <% @posts.each do |post| %>
@@ -8,10 +12,15 @@
       <%= render post %>
       <p>
         <%= link_to "Show this post", post %>
-        <%= form_with model: @like do |f| %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :post_id, value: post.id %>
-          <%= f.submit '❤️' %>
+        <% if @liked_posts.include?(post) %>
+          <% like = Like.find_by(user_id: current_user.id, post_id: post.id) %>
+          <%= button_to '❤️', like_path(like.id), method: :delete %>
+        <% else %>
+          <%= form_with model: @like do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :post_id, value: post.id %>
+            <%= f.submit '🖤' %>
+          <% end %>
         <% end %>
       </p>
     </div>
