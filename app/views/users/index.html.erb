@@ -6,6 +6,7 @@ Following:<br>
 <% end %><br>
 
 <% @users.each do |user| %>
+  <% next if user == current_user %>
   <div class="user-info">
      Name: <%= user.name %><br>
      Email: <%= user.email %>
