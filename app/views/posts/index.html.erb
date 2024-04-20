@@ -1,4 +1,4 @@
-<h1>Posts</h1>
+<h1>Recent Posts</h1>
 
 
 Liked Posts:<br>
@@ -9,8 +9,8 @@ Liked Posts:<br>
 <div id="posts">
   <% @posts.each do |post| %>
     <div class="post">
-      <%= render post %>
-      <p>
+      <div class="post-infos">
+        <%= render post %>
         <%= link_to "Show this post", post %>
         <% if @liked_posts.include?(post) %>
           <% like = Like.find_by(user_id: current_user.id, post_id: post.id) %>
@@ -22,7 +22,7 @@ Liked Posts:<br>
             <%= f.submit '🖤' %>
           <% end %>
         <% end %>
-      </p>
+      </div>
     </div>
   <% end %>
 </div>

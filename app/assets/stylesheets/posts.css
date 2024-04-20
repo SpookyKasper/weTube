@@ -1,4 +1,8 @@
-.post {
+.post-infos {
   border: 1px solid blue;
   width: 50%;
+}
+
+.post {
+  display: flex;
 }

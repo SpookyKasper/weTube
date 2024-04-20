@@ -3,7 +3,17 @@
 <%= render @post %>
 
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <% if @post.user == current_user %>
+    <%= link_to "Edit this post", edit_post_path(@post) %>
+  <% end %>
+  <div class="post-comment">
+    <%= form_with model: @comment do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :post_id, value: @post.id %>
+      <%= f.text_field :body %>
+      <%= f.submit 'Publish Comment'%>
+    <% end %>
+  </div>
   <%= link_to "Back to posts", posts_path %>
 
   <%= button_to "Delete Post", @post, method: :delete %>
