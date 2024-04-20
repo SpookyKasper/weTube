@@ -1,1 +1,14 @@
 <h1>Users</h1>
+
+<% @users.each do |u| %>
+  <div class="user-info">
+     Name: <%= u.name %><br>
+     Email: <%= u.email %>
+  </div>
+  <%= form_with model: @following do |f| %>
+    <%= f.hidden_field :follower_id, value: current_user.id %>
+    <%= f.hidden_field :followee_id, value: u.id %>
+    <%= f.submit 'Follow' %>
+  <% end %>
+  <br>
+<% end %>
