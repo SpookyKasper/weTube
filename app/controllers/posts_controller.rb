@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[show edit update destroy]
 
   # GET /posts or /posts.json
   def index
     @posts = Post.includes(:comments, :user, :likes).all
+    @followees_posts = current_user.followees.map(&:posts).flatten
+    @own_posts = @posts.where(user: current_user)
+    @display_posts = @posts.select { |post| @followees_posts.include?(post) || @own_posts.include?(post) }
     @like = Like.new
   end
 
@@ -12,7 +15,6 @@ class PostsController < ApplicationController
     @post = Post.includes(:comments, :user, :likes).find(params[:id])
     @like = Like.new
     @comment = Comment.new
-    @comments = Comment.where(post_id: @post.id)
   end
 
   # GET /posts/new

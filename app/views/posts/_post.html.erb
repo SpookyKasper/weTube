@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
   <strong>Author:</strong>
-    <%= post.user.name%>
+    <%= post.user.name %>
   <p>
     <strong>Title:</strong>
     <%= post.title %>
@@ -28,5 +28,5 @@
       <%= f.submit '🖤' %>
     <% end %>
   <% end %>
-    <div class="likes">❤️ <%= post.likes.size%></div>
+    <div class="likes">❤️<%= post.likes.size %></div>
 </div>
