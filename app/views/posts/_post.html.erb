@@ -19,8 +19,7 @@
     <% end %>
   </p>
 
-  <% if post.likes.any? { |like| like.user == current_user }%>
-    <% like = Like.find_by(user_id: current_user.id, post_id: post.id) %>
+  <% if like = post.likes.find { |like| like.user == current_user }%>
     <%= button_to '❤️', like_path(like.id), method: :delete %>
   <% else %>
     <%= form_with model: @like do |f| %>

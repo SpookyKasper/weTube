@@ -9,7 +9,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:comments, :user, :likes).find(params[:id])
+    @like = Like.new
     @comment = Comment.new
     @comments = Comment.where(post_id: @post.id)
   end
