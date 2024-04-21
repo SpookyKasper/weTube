@@ -1,8 +1,19 @@
 .post-infos {
   border: 1px solid blue;
   width: 50%;
+  padding: 10px;
 }
 
 .post {
   display: flex;
+  padding: 10px;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+}
+
+.num_likes {
+  margin-left: 5px;
 }
