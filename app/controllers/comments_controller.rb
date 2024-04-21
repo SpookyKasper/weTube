@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
 
     if @comment.save
       redirect_to @post
+    else
+      render :post, status: 422
     end
   end
 

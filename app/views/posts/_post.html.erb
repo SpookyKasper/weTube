@@ -18,5 +18,16 @@
       <%= comment.body %>
     <% end %>
   </p>
+
+  <% if post.likes.any? { |like| like.user == current_user }%>
+    <% like = Like.find_by(user_id: current_user.id, post_id: post.id) %>
+    <%= button_to '❤️', like_path(like.id), method: :delete %>
+  <% else %>
+    <%= form_with model: @like do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.submit '🖤' %>
+    <% end %>
+  <% end %>
     <div class="likes">❤️ <%= post.likes.size%></div>
 </div>
