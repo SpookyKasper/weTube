@@ -1,8 +1,8 @@
 class LikesController < ApplicationController
   def create
-    @like = Like.new(like_params)
+    @like = Like.new(user_id: params[:user_id], post_id: params[:post_id])
     if @like.save
-      redirect_to :posts
+      redirect_back(fallback_location: :root)
     else
       render :posts, status: 422
     end
@@ -11,7 +11,9 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     if @like.destroy
-      redirect_to :posts
+      redirect_back(fallback_location: :root)
+    else
+
     end
   end
 

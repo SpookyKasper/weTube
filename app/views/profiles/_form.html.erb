@@ -1,0 +1,9 @@
+<%= form_with model: @profile do |f| %>
+  <div class="user-info">
+    <%= f.label :user_info, 'About Me:'%>
+    <%= f.text_area :user_info %>
+  </div>
+  <% img_url = session[:profile_picture]%>
+  <img src="<%= img_url%>" alt="">
+    <%= f.submit 'Save Profile' %>
+<% end %>

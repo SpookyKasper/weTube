@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: ['index']
   resources :posts
   resources :comments
+  resources :profiles
   resources :followings, only: %w[create destroy]
   resources :likes, only: %w[create destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

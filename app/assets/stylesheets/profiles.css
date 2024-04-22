@@ -1,0 +1,15 @@
+.posts {
+  border: 2px solid blue;
+  padding: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
+  width: 220px;
+  height: 176px;
+}

@@ -20,14 +20,10 @@
   </p>
 
   <div class="likes">
-    <% if like = post.likes.find { |like| like.user == current_user }%>
+    <% if like = post.likes.find { |like| like.user == current_user } %>
       <%= button_to '❤️', like_path(like.id), method: :delete %>
     <% else %>
-      <%= form_with model: @like do |f| %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :post_id, value: post.id %>
-        <%= f.submit '🖤' %>
-      <% end %>
+      <%= button_to '🖤', likes_path(user_id: current_user.id, post_id: post.id), method: :post %>
     <% end %>
     <% num_likes = post.likes.size > 0 ? post.likes.size : nil %>
     <div class="num_likes"><%= num_likes %></div>

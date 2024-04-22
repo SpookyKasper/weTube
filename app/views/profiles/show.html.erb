@@ -1,0 +1,10 @@
+<h1>My Profile</h1>
+
+<%= render 'form' %>
+
+<strong><h2>My Posts:</h2></strong>
+<div class="posts">
+  <% current_user.posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+</div>
