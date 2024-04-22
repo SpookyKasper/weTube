@@ -1,6 +1,10 @@
-.posts {
-  border: 2px solid blue;
+.profile-posts {
   padding: 10px;
+}
+
+.profile-post {
+  padding: 10px;
+  border: 2px solid gray;
 }
 
 .user-info {
