@@ -3,9 +3,10 @@
   <img src="<%= session[:profile_picture]%>" alt="">
 </div>
 
-<%= render 'form' %>
+<h2>About Me:</h2>
+<div class="profile-infos"><%= @profile.info %></div>
 
-<strong><h2>My Posts:</h2></strong>
+<h2>My Posts:</h2>
 <div class="posts">
   <% current_user.posts.each do |post| %>
     <%= render post %>
