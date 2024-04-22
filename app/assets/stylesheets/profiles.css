@@ -8,6 +8,11 @@
   flex-direction: column;
 }
 
+.profile-head {
+  display: flex;
+  align-items: center;
+}
+
 textarea {
   resize: none;
   width: 220px;

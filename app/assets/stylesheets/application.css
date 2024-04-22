@@ -21,3 +21,8 @@
  .notice {
   color: green;
  }
+
+ .field_with_errors {
+  border: 1px solid red;
+  padding: 1px;
+ }

@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_21_094407) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.text "infos"
+    t.text "info"
     t.text "profile_picture_path"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
