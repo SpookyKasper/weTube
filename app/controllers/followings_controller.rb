@@ -1,6 +1,7 @@
 class FollowingsController < ApplicationController
   def create
-    @following = Following.new(following_params)
+    @user = current_user
+    @following = @user.followed_users.build(followee_id: params[:followee_id])
 
     if @following.save
       redirect_to users_path
