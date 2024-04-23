@@ -17,9 +17,6 @@ module WeTube
     config.autoload_lib(ignore: %w(assets tasks))
 
     # Configuration for the application, engines, and railties goes here.
-    config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { :api_token => "POSTMARK_API_TEST" }
-    #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
