@@ -93,6 +93,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    childprocess (5.0.0)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -134,6 +135,11 @@ GEM
       activesupport (>= 5.0.0)
     jwt (2.8.1)
       base64
+    launchy (3.0.0)
+      addressable (~> 2.8)
+      childprocess (~> 5.0)
+    letter_opener (1.10.0)
+      launchy (>= 2.2, < 4)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -314,6 +320,7 @@ DEPENDENCIES
   dotenv-rails
   importmap-rails
   jbuilder
+  letter_opener
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   pg (~> 1.1)

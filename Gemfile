@@ -30,6 +30,15 @@ gem "jbuilder"
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 
+# Add devise for authentication
+gem 'devise', "~> 4.9"
+
+# Add dotenv-rails for hiding credentials
+gem 'dotenv-rails', groups: [:development, :test]
+
+# Add
+gem "letter_opener", group: :development
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -69,7 +78,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "devise", "~> 4.9"
-
-gem 'dotenv-rails', groups: [:development, :test]
