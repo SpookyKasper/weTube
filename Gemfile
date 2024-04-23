@@ -39,6 +39,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Add
 gem "letter_opener", group: :development
 
+# Mailer
+gem 'postmark-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
