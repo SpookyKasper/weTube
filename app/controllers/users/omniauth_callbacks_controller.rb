@@ -1,6 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     @user = User.from_omniauth(request.env['omniauth.auth'])
+    session[:profile_picture] = request.env['omniauth.auth']['info']['image']
 
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
@@ -10,7 +11,5 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session['devise.google_data'] = request.env['omniauth.auth'].except('extra')
       redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
     end
-
-    session[:profile_picture] = request.env['omniauth.auth']['info']['image']
   end
 end

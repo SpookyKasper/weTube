@@ -16,6 +16,6 @@
     <%= f.label :info, 'About Me:'%>
     <%= f.text_area :info %>
   </div>
-  <%= f.hidden_field :profile_picture_path, value: session[:profile_picture] %>
+  <%= f.hidden_field :profile_picture_path, value: @profile_picture %>
   <%= f.submit 'Save Profile' %>
 <% end %>

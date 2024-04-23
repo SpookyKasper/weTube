@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
     redirect_to profile_path(current_user.profile) if current_user.profile
 
     @profile = Profile.new
+    @profile_picture = session[:profile_picture]
   end
 
   def create
@@ -25,6 +26,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:info, :profile_picture_url)
+    params.require(:profile).permit(:info, :profile_picture_path)
   end
 end
