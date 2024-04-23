@@ -1,5 +1,5 @@
 databases:
-  - name: wetube
+  - name: we_tube
     databaseName: wetube
     user: wetube
     plan: free
