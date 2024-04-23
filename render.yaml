@@ -1,12 +1,12 @@
 databases:
   - name: we_tube
-    databaseName: wetube
-    user: wetube
+    databaseName: we_tube
+    user: we_tube
     plan: free
 
 services:
   - type: web
-    name: wetube
+    name: we_tube
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
