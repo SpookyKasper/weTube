@@ -14,8 +14,8 @@
     <%# Display sign-out button if some use is logged in %>
     <% if current_user %>
       <div class="login-section">
-        You are logged-in as: <%= current_user.name %>
         <%= button_to 'Sign-out', destroy_session_path(current_user), method: :delete %>
+        You are logged-in as: <%= current_user.name %>
       </div>
       <%= button_to 'Home', root_path, method: :get %>
       <%= button_to 'Users', users_path, method: :get %>
