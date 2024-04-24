@@ -18,7 +18,7 @@
   display: grid;
   height: 100vh;
   grid-template-columns: 60px 1fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 50px 1fr;
   grid-template-areas:
     'sidebar header'
     'sidebar main';
@@ -33,13 +33,37 @@ header {
   grid-template-rows: 1fr;
 }
 
-.search {
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.red-square {
+  border-radius: 5px;
+  display: flex;
+  background-color: red;
+  font-size: smaller;
+  height: 40%;
+  width: 30px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-section .text {
+  margin-left: 5px;
+  font-size: x-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
+
+header .search {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.search form {
+header .search form {
   width: 100%;
   height: 90%;
   display: grid;

@@ -14,7 +14,10 @@
     <%# Display sign-out button if some use is logged in %>
     <nav></nav>
     <header>
-      <div class="logo"></div>
+      <div class="logo-section">
+        <div class="red-square">▶︎</div>
+        <div class="text">WeTube</div>
+      </div>
       <div class="search">
         <%= form_tag '/', method: :get do %>
           <%= text_field_tag :query, params[:query], placeholder: 'Search' %>
