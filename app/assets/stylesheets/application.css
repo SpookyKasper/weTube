@@ -64,15 +64,13 @@ header .search {
 }
 
 header .search form {
-  width: 100%;
-  height: 90%;
+  width: 80%;
   display: grid;
   grid-template-columns: 5fr 1fr;
   align-items: center;
 }
 
 .search input {
-  border: 1px solid gray;
   padding: 0;
   object-fit: contain;
   height: 40px;
@@ -82,12 +80,53 @@ header .search form {
   font-size: large;
   padding-left: 30px;
   border-radius: 20px 0px 0px 20px;
+  border: 1px solid lightgray;
 }
 
-#search-button {
+.search-button {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0px 20px 20px 0px;
-  width: 100%;
-  background-color: rgb(246, 243, 243)
+  height: 100%;
+  background-color: rgb(246, 243, 243);
+  border: 1px solid lightgray;
+}
+
+.search-button input {
+  border: none;
+  height: 30px;
+}
+
+.user {
+  box-sizing: border-box;
+  height: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.user form {
+  max-height: 40px;
+  max-width: 40px;
+  margin-right: 15px;
+}
+
+.user button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: inherit;
+  max-width: inherit;
+  border-radius: 50%;
+}
+
+.user img {
+  border-radius: inherit;
+  box-sizing: border-box;
+  max-height: inherit;
 }
 
 nav {

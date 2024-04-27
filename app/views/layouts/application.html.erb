@@ -21,10 +21,12 @@
       <div class="search">
         <%= form_tag '/', method: :get do %>
           <%= text_field_tag :query, params[:query], placeholder: 'Search' %>
-          <%= submit_tag '', src: asset_path('search-ic.svg'), type: 'image', id: 'search-button'%>
+          <div class="search-button"><%= submit_tag '', src: asset_path('search-ic.svg'), type: 'image' %></div>
         <% end %>
       </div>
-      <div class="user"></div>
+      <div class="user">
+        <%= button_to image_tag(current_user.profile.profile_picture_path), new_profile_path, method: :get %>
+      </div>
     </header>
     <main>
       <% if current_user %>
@@ -34,7 +36,7 @@
         </div>
         <%= button_to 'Home', root_path, method: :get %>
         <%= button_to 'Users', users_path, method: :get %>
-        <%= button_to 'My Profile', new_profile_path, method: :get%>
+
       <% end %>
       <%# Create a p for the flashes with apropriate class %>
       <% if flash[:notice] %>
