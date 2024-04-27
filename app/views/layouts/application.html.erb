@@ -12,7 +12,10 @@
 
   <body>
     <%# Display sign-out button if some use is logged in %>
-    <nav></nav>
+    <nav>
+      <div class="menu"></div>
+      <%= button_to image_tag('home-icon.svg') + 'Home', root_path, method: :get %>
+    </nav>
     <header>
       <div class="logo-section">
         <div class="red-square">▶︎</div>
@@ -25,7 +28,9 @@
         <% end %>
       </div>
       <div class="user">
-        <%= button_to image_tag(current_user.profile.profile_picture_path), new_profile_path, method: :get %>
+        <% if current_user %>
+          <%= button_to image_tag(current_user.profile.profile_picture_path), new_profile_path, method: :get %>
+        <% end %>
       </div>
     </header>
     <main>
@@ -34,7 +39,6 @@
           <%= button_to 'Sign-out', destroy_session_path(current_user), method: :delete %>
           You are logged-in as: <%= current_user.name %>
         </div>
-        <%= button_to 'Home', root_path, method: :get %>
         <%= button_to 'Users', users_path, method: :get %>
 
       <% end %>
