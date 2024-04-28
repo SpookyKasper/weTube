@@ -15,6 +15,7 @@
     <nav>
       <div class="menu"></div>
       <%= button_to image_tag('home-icon.svg') + 'Home', root_path, method: :get %>
+      <%= button_to image_tag('users-icon.svg') + 'Users', users_path, method: :get %>
     </nav>
     <header>
       <div class="logo-section">
@@ -29,20 +30,17 @@
       </div>
       <div class="user">
         <% if current_user %>
-          <%= button_to image_tag(current_user.profile.profile_picture_path), new_profile_path, method: :get %>
+          <div class="dropdown" data-controller='toggle' >
+            <%= button_to image_tag(current_user.profile.profile_picture_path), method: :get %>
+            <ul class='dropdown-menu'>
+              <li><%= button_to 'Profile', profile_path(current_user.profile.id), method: :get %></li>
+              <li><%= button_to 'Sign-out', destroy_session_path(current_user), method: :delete %></li>
+            </ul>
+          </div>
         <% end %>
       </div>
     </header>
     <main>
-      <% if current_user %>
-        <div class="login-section">
-          <%= button_to 'Sign-out', destroy_session_path(current_user), method: :delete %>
-          You are logged-in as: <%= current_user.name %>
-        </div>
-        <%= button_to 'Users', users_path, method: :get %>
-
-      <% end %>
-      <%# Create a p for the flashes with apropriate class %>
       <% if flash[:notice] %>
         <p class='notice'> <%= flash[:notice] %></p>
       <% elsif flash[:alert] %>
