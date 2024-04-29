@@ -128,34 +128,84 @@ header .search form {
   border-radius: 50%;
 }
 
-.user img {
+.profile-picture {
   border-radius: inherit;
   box-sizing: border-box;
   max-height: inherit;
+  border-radius: 50%;
 }
 
 .dropdown-menu {
-  display: none;
+  /* display: none; */
   position: absolute;
   list-style: none;
-  border: 1px solid blue;
-  padding: 0;
+  width: 25vh;
+  right: 2vh;
+  padding: 15px 0px;
   margin: 0;
+  box-shadow: 0 0 3px #ccc;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.dropdown-menu .profile-section {
+  display: grid;
+  gap: 15px;
+  padding: 15px;
+  grid-template-columns: 1fr 4fr;
+  border-bottom: 1px solid lightgray;
+}
+
+.dropdown .signout-section {
+  margin: 5px 0px;
+}
+
+.profile-section .profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-section a {
+  text-decoration: none;
+}
+
+.dropdown-menu img {
+  height: 50px;
 }
 
 .visible .dropdown-menu {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.dropdown-menu button {
-  display: block;
-  border-radius: 0;
+.dropdown-menu .button_to, .dropdown-menu .button_to button {
+  box-sizing: border-box;
   width: 100%;
+  min-height: 30px;
+  border-radius: 0;
 }
 
-.dropdown-menu li a {
-  text-decoration: none;
+.dropdown-menu .button_to button {
+  display: grid;
+  grid-template-columns: 1fr 2fr 4fr;
+  background-color: white;
 }
+
+.dropdown-menu button:hover {
+  background-color: lightgray;
+}
+
+.dropdown-menu .signout-section img {
+  max-height: 3vh;
+  margin-left: 10px;
+}
+
+.dropdown-menu .signout-section button > :last-child {
+  justify-content: left;
+}
+
 
 nav {
   grid-area: sidebar;
@@ -184,8 +234,8 @@ nav button img {
 }
 
 main {
+  padding: 30px;
   grid-area: main;
-  border: 1px solid gray;
 }
 
 main button {
