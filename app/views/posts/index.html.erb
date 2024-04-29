@@ -1,8 +1,13 @@
+<div class="categories">
+</div>
+
 <div class="posts">
   <% @display_posts.each do |post| %>
-    <div class="post">
-      <%= render post %>
-    </div>
+    <%= link_to post_path(post) do %>
+      <div class="post">
+        <%= render post %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

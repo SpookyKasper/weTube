@@ -1,14 +1,16 @@
-.logo-section {
+.logo-section, a {
+  text-decoration: none;
   display: flex;
   align-items: center;
+  padding: 10px 0px;
 }
 
 .red-square {
   border-radius: 5px;
   display: flex;
   background-color: red;
-  font-size: smaller;
-  height: 40%;
+  font-size: x-small;
+  height: 20px;
   width: 30px;
   color: white;
   justify-content: center;

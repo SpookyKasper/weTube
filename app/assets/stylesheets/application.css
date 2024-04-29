@@ -38,6 +38,14 @@ header {
   grid-template-rows: 1fr;
 }
 
+a {
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
 main {
   padding: 30px;
   grid-area: main;

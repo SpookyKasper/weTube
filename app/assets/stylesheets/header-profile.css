@@ -59,8 +59,8 @@
   flex-direction: column;
 }
 
-.profile-section a {
-  text-decoration: none;
+.profile-section .profile-text  a{
+  color: blue;
 }
 
 .dropdown-menu img {
