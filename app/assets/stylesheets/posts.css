@@ -11,17 +11,17 @@
 
 .post {
   flex-grow: 1;
-  border: 1px solid blue;
   display: grid;
-  grid-template-rows: 1.5fr 1fr;
+  grid-template-rows: 3fr 2fr;
   grid-template-columns: 1fr;
   justify-content: center;
   max-width: 30vh;
-  min-height: 25vh;
+  min-height: 30vh;
 }
 
 .post-image-container {
   box-sizing: border-box;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
