@@ -15,11 +15,14 @@
   grid-template-rows: 3fr 2fr;
   grid-template-columns: 1fr;
   justify-content: center;
-  max-width: 30vh;
-  min-height: 30vh;
+  min-width: 30vh;
+  min-height: 200px;
+  height: 30vh;
 }
 
 .post-image-container {
+  min-height: 150px;
+  min-width: 200px;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;

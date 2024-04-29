@@ -20,7 +20,23 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = Profile.includes(:user).find(params[:id])
+    @user = @profile.user
+  end
+
+  def edit
+    @profile = Profile.includes(:user).find(params[:id])
+  end
+
+  def update
+    @profile = Profile.includes(:user).find(params[:id])
+
+    if @profile.update(profile_params)
+      redirect_to @profile
+    else
+      flash[:alert] = "Oops"
+      render :edit
+    end
   end
 
   private

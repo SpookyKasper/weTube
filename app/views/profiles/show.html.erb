@@ -1,13 +1,20 @@
 <div class="profile-head">
   <img src="<%= @profile.profile_picture_path %>" alt="profile-picture", class='profile-picture'>
+  <div class="profile-infos">
+    <h1><%= @user.name %></h1>
+    <%= @user.email %>
+    <%= button_to 'Edit Profile', edit_profile_path(@profile), method: :get %>
+  </div>
 </div>
 
 <h2>About Me:</h2>
 <div class="profile-infos"><%= @profile.info %></div>
 
 <h2>My Posts:</h2>
-<div class="profile-posts">
+<div class="posts">
   <% current_user.posts.each do |post| %>
-    <div class="profile-post"><%= render post %></div>
+    <%= link_to post_path(post) do %>
+      <div class="post"><%= render post %></div>
+    <% end %>
   <% end %>
 </div>
