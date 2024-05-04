@@ -1,11 +1,11 @@
-.logo-section, a {
+header .logo-section, a {
   text-decoration: none;
   display: flex;
   align-items: center;
   padding: 10px 0px;
 }
 
-.red-square {
+header .red-square {
   border-radius: 5px;
   display: flex;
   background-color: red;
@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.logo-section .text {
+header .logo-section .text {
   margin-left: 5px;
   font-size: x-large;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

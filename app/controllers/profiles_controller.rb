@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
     redirect_to profile_path(current_user.profile) if current_user.profile
 
     @profile = Profile.new
-    @profile_picture = session[:profile_picture]
+    @profile_picture = session[:profile_picture_path] || 'user-default.svg'
   end
 
   def create

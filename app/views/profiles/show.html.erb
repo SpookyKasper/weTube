@@ -1,5 +1,5 @@
 <div class="profile-head">
-  <img src="<%= @profile.profile_picture_path %>" alt="profile-picture", class='profile-picture'>
+  <%= image_tag(@profile.profile_picture_path, class: 'profile-picture')%>
   <div class="profile-infos">
     <h1><%= @user.name %></h1>
     <%= @user.email %>

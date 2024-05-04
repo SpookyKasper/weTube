@@ -33,13 +33,14 @@
       <div class="user">
         <%= button_to image_tag('add-post.svg'), new_post_path, method: :get %>
         <% if current_user && current_user.profile %>
+          <% profile_image = current_user.profile.profile_picture_path %>
           <div class="dropdown" data-controller='toggle' data-toggle-show-class='visible'>
             <button data-action='toggle#display_menu'>
-              <%= image_tag(session[:profile_picture], class: 'profile-picture') %>
+              <%= image_tag(profile_image, class: 'profile-picture') %>
             </button>
             <div class='dropdown-menu'>
               <div class='profile-section'>
-                  <%= image_tag(current_user.profile.profile_picture_path, class: 'profile-picture') %>
+                  <%= image_tag(profile_image, class: 'profile-picture') %>
                 <div class="profile-text">
                   <%= current_user.name %>
                   <%= link_to 'View your profile', profile_path(current_user.profile.id), method: :get %>
