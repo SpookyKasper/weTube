@@ -12,12 +12,11 @@
       </ul>
     </div>
   <% end %>
+
   <div class="user-info">
     <%= f.label :info, 'About Me:'%>
     <%= f.text_area :info %>
   </div>
-  <% if @profile.profile_picture_path.nil? %>
-    <% f.hidden_field :profile_picture_path, value: @profile_picture %>
-  <% end %>
+    <%= f.hidden_field :profile_picture_path, value: @profile_picture %>
     <%= f.submit 'Save Profile' %>
 <% end %>

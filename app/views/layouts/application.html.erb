@@ -31,14 +31,14 @@
         <% end %>
       </div>
       <div class="user">
-        <% if current_user %>
+        <% if current_user && current_user.profile %>
           <div class="dropdown" data-controller='toggle' data-toggle-show-class='visible'>
             <button data-action='toggle#display_menu'>
-              <%= image_tag(current_user.profile.profile_picture_path, class: 'profile-picture') %>
+              <%= image_tag(session[:profile_picture], class: 'profile-picture') %>
             </button>
             <div class='dropdown-menu'>
               <div class='profile-section'>
-                <%= image_tag(current_user.profile.profile_picture_path, class: 'profile-picture') %>
+                  <%= image_tag(current_user.profile.profile_picture_path, class: 'profile-picture') %>
                 <div class="profile-text">
                   <%= current_user.name %>
                   <%= link_to 'View your profile', profile_path(current_user.profile.id), method: :get %>
@@ -49,6 +49,8 @@
               </div>
             </div>
           </div>
+        <% else %>
+          <%= button_to 'Create Profile', new_profile_path, method: :get%>
         <% end %>
       </div>
     </header>
