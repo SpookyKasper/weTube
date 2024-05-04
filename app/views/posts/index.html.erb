@@ -4,11 +4,7 @@
 <div class="posts">
   <% @display_posts.each do |post| %>
     <%= link_to post_path(post) do %>
-      <div class="post">
-        <%= render post %>
-      </div>
+      <%= render post %>
     <% end %>
   <% end %>
 </div>
-
-<%= link_to "New post", new_post_path %>

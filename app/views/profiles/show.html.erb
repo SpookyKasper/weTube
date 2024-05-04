@@ -14,7 +14,7 @@
 <div class="posts">
   <% current_user.posts.each do |post| %>
     <%= link_to post_path(post) do %>
-      <div class="post"><%= render post %></div>
+      <%= render post %>
     <% end %>
   <% end %>
 </div>
