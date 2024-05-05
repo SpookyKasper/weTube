@@ -7,13 +7,12 @@ class PostsController < ApplicationController
     @followees_posts = current_user.followees.map(&:posts).flatten
     @own_posts = @posts.where(user: current_user)
     @display_posts = @posts.select { |post| @followees_posts.include?(post) || @own_posts.include?(post) }
-    @like = Like.new
   end
 
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.includes(:comments, :user, :likes).find(params[:id])
-    @like = Like.new
+    @liked = Like.find_by(user_id: current_user, post_id: @post.id)
     @comment = Comment.new
   end
 
