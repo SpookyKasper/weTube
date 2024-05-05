@@ -16,8 +16,8 @@
 }
 
 .post-info .fake-profile-image {
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   background-color: blue;
   border-radius: 50%;
 }
@@ -44,7 +44,7 @@
 }
 
 .post-image-container {
-  min-height: 150px;
+  min-height: 180px;
   min-width: 200px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -56,9 +56,18 @@
 
 .likes {
   display: flex;
-  align-items: center;
+  gap: 5px;
 }
 
-.num_likes {
+.like-count {
+  display: flex;
+  margin-top: 3px;
   margin-left: 5px;
+}
+
+.post-text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
 }

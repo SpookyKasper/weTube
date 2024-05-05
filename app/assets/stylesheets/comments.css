@@ -1,0 +1,17 @@
+.comment {
+  display: flex;
+}
+
+.comment .profile-picture {
+  padding: 10px;
+}
+
+.comment .comment-text {
+  padding-top: 10px;
+}
+
+
+.comment .comment-text .user-name {
+  /* background-color: blue; */
+  font-weight: 600;
+}
