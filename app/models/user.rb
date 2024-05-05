@@ -17,8 +17,6 @@ class User < ApplicationRecord
     user = User.where(email: data['email']).first
 
     user || user = User.create(name: data['name'], email: data['email'], password: Devise.friendly_token[0, 20])
-    puts 'note to delete if duplicate'
-    UserMailer.with(user: user).welcome_email.deliver_later
     user
   end
 end
