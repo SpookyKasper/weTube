@@ -1,7 +1,14 @@
 <%= render @post %>
+<div class="post-likes"><%= @post.likes.count %></div>
+<div class="post-comments">
+  <% @post.comments.each do |comment| %>
+    <%= render comment %>
+  <% end %>
+<div>
 
 <% if @post.user == current_user %>
   <%= link_to "Edit this post", edit_post_path(@post) %>
+  <%= button_to "Delete Post", @post, method: :delete %>
 <% end %>
 
 <% if @liked  %>
@@ -19,5 +26,3 @@
   <% end %>
 </div>
 
-<%= button_to "Delete Post", @post, method: :delete %>
-<%= link_to "Back to posts", posts_path %>
