@@ -46,6 +46,7 @@
 .post-image-container {
   min-height: 180px;
   min-width: 200px;
+  max-width: 350px;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
@@ -53,6 +54,15 @@
   justify-content: center;
   background-color: lightblue;
 }
+
+.post-image-container img {
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
 
 .likes {
   display: flex;
@@ -69,5 +79,5 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-
 }
+

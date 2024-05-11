@@ -1,11 +1,15 @@
   <div class="post">
     <div class="post-image-container">
-      <div class="post-image"><%= post.body %></div>
+      <% if post.image_url %>
+        <img src="<%= post.image_url %>" alt="">
+      <% else %>
+        <%= post.body %>
+      <% end %>
     </div>
     <div class="post-info">
       <div class="profile-image-container">
         <% if post.user.profile %>
-          <%= image_tag(post.user.profile.profile_picture_path) %>
+          <%= image_tag post.user.profile.profile_picture_path %>
         <% else %>
           <div class="fake-profile-image"></div>
         <% end %>
